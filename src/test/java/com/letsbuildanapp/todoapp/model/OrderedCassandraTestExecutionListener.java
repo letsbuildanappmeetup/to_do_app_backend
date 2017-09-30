@@ -1,4 +1,4 @@
-package com.letsbuildanapp.todoapp.data;
+package com.letsbuildanapp.todoapp.model;
 
 import org.cassandraunit.spring.CassandraUnitDependencyInjectionTestExecutionListener;
 import org.slf4j.Logger;

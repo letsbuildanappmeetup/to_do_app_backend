@@ -1,9 +1,8 @@
 package com.letsbuildanapp.todoapp;
 
-import com.letsbuildanapp.todoapp.data.Todo;
-import com.letsbuildanapp.todoapp.data.User;
-import com.letsbuildanapp.todoapp.repository.TodoRepository;
-import com.letsbuildanapp.todoapp.repository.UserRepository;
+import com.letsbuildanapp.todoapp.model.Todo;
+import com.letsbuildanapp.todoapp.repositories.TodoRepository;
+import com.letsbuildanapp.todoapp.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

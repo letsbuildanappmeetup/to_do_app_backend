@@ -1,14 +1,12 @@
-package com.letsbuildanapp.todoapp.Todo;
+package com.letsbuildanapp.todoapp.todocontroller;
 
-import com.datastax.driver.core.utils.UUIDs;
-import com.letsbuildanapp.todoapp.data.Todo;
-import com.letsbuildanapp.todoapp.repository.TodoRepository;
+import com.letsbuildanapp.todoapp.model.Todo;
+import com.letsbuildanapp.todoapp.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,16 +33,11 @@ public class TodoProcess {
         for (Todo todo : toDosRepositoryAll) {
             todos.add(todo);
         }
-        System.out.println(todos);
         return todos;
     }
 
     void createTodo(Todo todo) {
-        Todo todo1 = new Todo();
-        todo1.setId(UUIDs.timeBased());
-        todo1.setDescription(todo.getDescription());
-        todo1.setTitle(todo.getTitle());
-        todoRepository.save(todo1);
+        todoRepository.save(todo);
     }
 
     void deleteTodo(UUID uuid) {

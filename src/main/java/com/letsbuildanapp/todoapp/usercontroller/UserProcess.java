@@ -1,6 +1,6 @@
-package com.letsbuildanapp.todoapp.User;
+package com.letsbuildanapp.todoapp.usercontroller;
 
-import com.letsbuildanapp.todoapp.repository.UserRepository;
+import com.letsbuildanapp.todoapp.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

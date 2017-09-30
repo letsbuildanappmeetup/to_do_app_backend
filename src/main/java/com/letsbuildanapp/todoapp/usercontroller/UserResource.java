@@ -1,4 +1,4 @@
-package com.letsbuildanapp.todoapp.User;
+package com.letsbuildanapp.todoapp.usercontroller;
 
 import org.springframework.web.bind.annotation.RestController;
 

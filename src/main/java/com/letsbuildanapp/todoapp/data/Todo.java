@@ -17,6 +17,9 @@ public class Todo {
 
     private String description;
 
+    public Todo() {
+    }
+
     public Todo(UUID id, String title, String description) {
         this.id = id;
         this.title = title;

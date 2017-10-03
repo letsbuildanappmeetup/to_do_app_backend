@@ -6,9 +6,9 @@ import com.letsbuildanapp.todoapp.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,6 +16,7 @@ import java.util.UUID;
 @Transactional
 public class TodoProcess {
 
+    private final static Logger logger = Logger.getLogger(TodoProcess.class);
     private final TodoRepository todoRepository;
 
     @Autowired
@@ -25,17 +26,15 @@ public class TodoProcess {
 
     Todo getOneTodo(String title) {
         Todo todo = todoRepository.findByTitle(title);
-        System.out.println(todo);
+        logger.info("This is info todos : " + todo);
         return todo;
     }
 
     List<Todo> getAllTodos() {
         List<Todo> todos = new ArrayList<>();
         Iterable<Todo> toDosRepositoryAll = this.todoRepository.findAll();
-        for (Todo todo : toDosRepositoryAll) {
-            todos.add(todo);
-        }
-        System.out.println(todos);
+        toDosRepositoryAll.forEach(todos::add);
+        logger.info("This is info todos : " + todos);
         return todos;
     }
 

@@ -1,4 +1,4 @@
-package com.letsbuildanapp.todoapp.data;
+package com.letsbuildanapp.todoapp.model;
 
 import org.springframework.data.cassandra.mapping.PrimaryKey;
 import org.springframework.data.cassandra.mapping.Table;

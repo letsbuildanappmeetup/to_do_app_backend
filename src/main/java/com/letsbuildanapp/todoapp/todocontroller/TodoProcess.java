@@ -1,8 +1,8 @@
-package com.letsbuildanapp.todoapp.Todo;
+package com.letsbuildanapp.todoapp.todocontroller;
 
 import com.datastax.driver.core.utils.UUIDs;
-import com.letsbuildanapp.todoapp.data.Todo;
-import com.letsbuildanapp.todoapp.repository.TodoRepository;
+import com.letsbuildanapp.todoapp.model.Todo;
+import com.letsbuildanapp.todoapp.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

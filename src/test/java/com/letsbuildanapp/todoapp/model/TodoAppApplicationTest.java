@@ -1,4 +1,4 @@
-package com.letsbuildanapp.todoapp.data;
+package com.letsbuildanapp.todoapp.model;
 
 import java.io.File;
 

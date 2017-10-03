@@ -1,6 +1,6 @@
-package com.letsbuildanapp.todoapp.Todo;
+package com.letsbuildanapp.todoapp.todocontroller;
 
-import com.letsbuildanapp.todoapp.data.Todo;
+import com.letsbuildanapp.todoapp.model.Todo;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

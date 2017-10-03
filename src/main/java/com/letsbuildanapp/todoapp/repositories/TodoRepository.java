@@ -1,6 +1,6 @@
-package com.letsbuildanapp.todoapp.repository;
+package com.letsbuildanapp.todoapp.repositories;
 
-import com.letsbuildanapp.todoapp.data.Todo;
+import com.letsbuildanapp.todoapp.model.Todo;
 import org.springframework.data.cassandra.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

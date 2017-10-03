@@ -2,19 +2,20 @@ package com.letsbuildanapp.todoapp;
 
 import com.letsbuildanapp.todoapp.model.Todo;
 import com.letsbuildanapp.todoapp.repositories.TodoRepository;
-import com.letsbuildanapp.todoapp.repositories.UserRepository;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.datastax.driver.core.utils.UUIDs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootApplication
 public class TodoAppApplication implements CommandLineRunner {
 
-
-	@Autowired
-	private UserRepository userRepository;
+	private final static Logger logger = Logger.getLogger(TodoAppApplication.class);
 
 	@Autowired
 	private TodoRepository todoRepository;
@@ -24,35 +25,20 @@ public class TodoAppApplication implements CommandLineRunner {
 
 		this.todoRepository.deleteAll();
 
-		// save a couple of users
-//		this.userRepository.save(new User(UUIDs.timeBased(), "Alice", "Smith"));
-//		this.userRepository.save(new User(UUIDs.timeBased(), "Bob", "Smith"));
-
 		this.todoRepository.save(new Todo(UUIDs.timeBased(), "Morning todo", "Go for a run"));
 		this.todoRepository.save(new Todo(UUIDs.timeBased(), "Evening todo", "Dinner with friends"));
 
-
-
 		// fetch all todo's
-		System.out.println("users found with findAll():");
-		System.out.println("-------------------------------");
-		for (Todo todo : this.todoRepository.findAll()) {
-			System.out.println(todo);
-		}
-		System.out.println();
+		logger.info("All todo's");
+		logger.info("-----------------------------");
 
-//		// fetch an individual user
-//		System.out.println("user found with findByFirstName('Alice'):");
-//		System.out.println("--------------------------------");
-//		System.out.println(this.userRepository.findByFirstName("Alice"));
-//
-//		System.out.println("users found with findByLastName('Smith'):");
-//		System.out.println("--------------------------------");
-//		for (User user : this.userRepository.findByLastName("Smith")) {
-//			System.out.println(user);
-//		}
+		List<Todo> todos = new ArrayList<>();
+		Iterable<Todo> toDosRepositoryAll = this.todoRepository.findAll();
+		toDosRepositoryAll.forEach(todos::add);
+		logger.info("This is info about todos : " + todos);
+
+		logger.info("-----------------------------");
 	}
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(TodoAppApplication.class, args);
